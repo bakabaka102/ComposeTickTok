@@ -19,10 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import hn.single.ticktok.R
 
-class NavBarLayout {
-}
-
-
 @Composable
 fun NavBarHeader() {
     Column(
@@ -34,7 +30,8 @@ fun NavBarHeader() {
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = "logo",
+            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            contentDescription = "logo",
             modifier = Modifier
                 .size(100.dp)
                 .padding(top = 10.dp)
@@ -52,22 +49,24 @@ fun NavBarBody(
     currentRoute: String?,
     onClick: (DrawerMenuItem) -> Unit,
 ) {
-    items.forEachIndexed { index, navigationItem ->
+    items.forEach { navigationItem ->
         NavigationDrawerItem(
-            colors = NavigationDrawerItemDefaults.colors(
-
-            ),
+            colors = NavigationDrawerItemDefaults.colors(),
             label = {
                 Text(text = navigationItem.title)
-            }, selected = currentRoute == navigationItem.route, onClick = {
+            },
+            selected = currentRoute == navigationItem.route,
+            onClick = {
                 onClick(navigationItem)
-            }, icon = {
+            },
+            icon = {
                 Icon(
                     imageVector = if (currentRoute == navigationItem.route) {
                         navigationItem.selectedIcon
                     } else {
                         navigationItem.unSelectedIcon
-                    }, contentDescription = navigationItem.title
+                    },
+                    contentDescription = navigationItem.title
                 )
             },
             badge = {
@@ -76,8 +75,11 @@ fun NavBarBody(
                 }
             },
             modifier = Modifier.padding(
-                PaddingValues(horizontal = 12.dp,
-                    vertical = 8.dp)
-            ))
+                PaddingValues(
+                    horizontal = 12.dp,
+                    vertical = 8.dp
+                )
+            )
+        )
     }
 }
