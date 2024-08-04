@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
-    private val _count = MutableLiveData<Int>(0)
+    private val _count = MutableLiveData(0)
     val count: LiveData<Int> get() = _count
 
     fun incrementCount() {

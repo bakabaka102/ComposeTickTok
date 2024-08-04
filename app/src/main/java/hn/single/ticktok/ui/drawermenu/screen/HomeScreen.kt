@@ -3,7 +3,6 @@ package hn.single.ticktok.ui.drawermenu.screen
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -70,7 +69,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
         }
 
         if (isShowDialogInput.value)
-            DialogInput(title = "Dialog input", timeOut = 5000, setShowDialog = {
+            DialogInput(title = "Dialog input", timeOut = 30_000, setShowDialog = {
                 isShowDialogInput.value = it
             }, setValue = {
                 Log.i("HomePage", "HomePage : $it")

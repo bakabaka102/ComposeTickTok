@@ -22,8 +22,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -50,7 +52,7 @@ fun DialogInput(
 ) {
 
     val txtFieldError = remember { mutableStateOf("") }
-    val txtField = remember { mutableStateOf(title) }
+    val txtField = remember { mutableIntStateOf(0) }
     LaunchedEffect(key1 = Unit) {
         delay(timeOut)
         setShowDialog(false)
@@ -91,6 +93,7 @@ fun DialogInput(
                 Spacer(modifier = Modifier.height(20.dp))
                 TextField(
                     modifier = Modifier
+                        .padding(horizontal = 40.dp)
                         .fillMaxWidth()
                         .border(
                             BorderStroke(
@@ -100,6 +103,15 @@ fun DialogInput(
                             shape = RoundedCornerShape(50)
                         ),
                     /*colors = TextFieldDefaults.colors(),*/
+                    colors = TextFieldDefaults.colors().copy(
+                        unfocusedContainerColor = Color.Transparent,
+                        focusedContainerColor = Color.Transparent,
+                        /*  focusedTextColor = md_black_1000,
+                          unfocusedTextColor = md_black_1000,*/
+                        focusedIndicatorColor = Color.Transparent,
+                        /*unfocusedContainerColor = md_grey_200,*/
+                        unfocusedIndicatorColor = Color.Transparent
+                    ),
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Money,
@@ -112,10 +124,10 @@ fun DialogInput(
                     },
                     label = { Text("Number") },
                     placeholder = { Text(text = "Enter value") },
-                    value = txtField.value,
+                    value = txtField.intValue.toString(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     onValueChange = {
-                        txtField.value = it.take(10)
+                        txtField.intValue = if (it.isNotEmpty()) it.toInt() else 0
                     })
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -123,11 +135,11 @@ fun DialogInput(
                 Box(modifier = Modifier.padding(40.dp)) {
                     Button(
                         onClick = {
-                            if (txtField.value.isEmpty()) {
+                            if (txtField.intValue.toString().isEmpty()) {
                                 txtFieldError.value = "Field can not be empty"
                                 return@Button
                             }
-                            setValue(txtField.value)
+                            setValue(txtField.intValue.toString())
                             setShowDialog(false)
                         },
                         shape = RoundedCornerShape(50.dp),
