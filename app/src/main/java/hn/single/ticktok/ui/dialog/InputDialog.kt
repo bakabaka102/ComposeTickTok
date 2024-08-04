@@ -59,7 +59,7 @@ fun DialogInput(
             shape = RoundedCornerShape(16.dp),
             color = Color.White
         ) {
-            Column(modifier = Modifier.padding(vertical = 24.dp)) {
+            Column {
                 Icon(
                     imageVector = Icons.Filled.Cancel,
                     contentDescription = "",
@@ -107,6 +107,7 @@ fun DialogInput(
                                 .height(20.dp)
                         )
                     },
+                    label = { Text("Number") },
                     placeholder = { Text(text = "Enter value") },
                     value = txtField.value,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -116,7 +117,7 @@ fun DialogInput(
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                Box(modifier = Modifier.padding(horizontal = 40.dp, vertical = 0.dp)) {
+                Box(modifier = Modifier.padding(40.dp)) {
                     Button(
                         onClick = {
                             if (txtField.value.isEmpty()) {

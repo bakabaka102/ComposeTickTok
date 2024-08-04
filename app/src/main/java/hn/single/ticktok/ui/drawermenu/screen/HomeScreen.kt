@@ -65,17 +65,17 @@ fun HomeScreen(innerPadding: PaddingValues) {
             DialogProgress(
                 title = "Loading",
                 description = "This is loading dialog",
+                timeOut = 5000,
                 setShowDialog = { isShowDialogProgress.value = it })
         }
 
         if (isShowDialogInput.value)
-            DialogInput(title = "", setShowDialog = {
+            DialogInput(title = "Dialog input", timeOut = 5000, setShowDialog = {
                 isShowDialogInput.value = it
             }, setValue = {
                 Log.i("HomePage", "HomePage : $it")
             })
 
-        Box(modifier = Modifier.background(Color.White)) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -93,7 +93,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 }) {
                     Text(text = "Progress Dialog")
                 }
-            }
+
         }
     }
 }
