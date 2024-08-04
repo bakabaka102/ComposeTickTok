@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import kotlinx.coroutines.delay
 
 @Composable
@@ -40,7 +41,9 @@ fun DialogProgress(
         delay(timeOut)
         setShowDialog(false)
     }
-    Dialog(onDismissRequest = { setShowDialog(false) }) {
+    Dialog(
+        properties = DialogProperties(dismissOnClickOutside = false),
+        onDismissRequest = { setShowDialog(false) }) {
         Surface(
             shape = RoundedCornerShape(16.dp),
             color = Color.White
