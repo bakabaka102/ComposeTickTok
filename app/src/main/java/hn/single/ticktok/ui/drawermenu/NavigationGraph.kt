@@ -10,10 +10,6 @@ import hn.single.ticktok.ui.drawermenu.screen.NotificationScreen
 import hn.single.ticktok.ui.drawermenu.screen.ProfileScreen
 import hn.single.ticktok.ui.drawermenu.screen.SettingScreen
 
-class NavigationGraph {
-
-}
-
 @Composable
 fun SetUpNavGraph(
     navController: NavHostController,
