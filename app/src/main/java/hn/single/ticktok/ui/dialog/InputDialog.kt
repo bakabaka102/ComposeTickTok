@@ -25,7 +25,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -52,7 +51,7 @@ fun DialogInput(
 ) {
 
     val txtFieldError = remember { mutableStateOf("") }
-    val txtField = remember { mutableIntStateOf(0) }
+    val txtField = remember { mutableStateOf("") }
     LaunchedEffect(key1 = Unit) {
         delay(timeOut)
         setShowDialog(false)
@@ -124,10 +123,10 @@ fun DialogInput(
                     },
                     label = { Text("Number") },
                     placeholder = { Text(text = "Enter value") },
-                    value = txtField.intValue.toString(),
+                    value = txtField.value,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     onValueChange = {
-                        txtField.intValue = if (it.isNotEmpty()) it.toInt() else 0
+                        txtField.value = it.ifEmpty { "" }
                     })
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -135,11 +134,11 @@ fun DialogInput(
                 Box(modifier = Modifier.padding(40.dp)) {
                     Button(
                         onClick = {
-                            if (txtField.intValue.toString().isEmpty()) {
+                            if (txtField.value.isEmpty()) {
                                 txtFieldError.value = "Field can not be empty"
                                 return@Button
                             }
-                            setValue(txtField.intValue.toString())
+                            setValue(txtField.value)
                             setShowDialog(false)
                         },
                         shape = RoundedCornerShape(50.dp),
