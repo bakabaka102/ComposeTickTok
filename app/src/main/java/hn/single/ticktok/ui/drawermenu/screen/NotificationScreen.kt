@@ -27,47 +27,6 @@ fun NotificationScreen(innerPadding: PaddingValues) {
             text = "Notification Screen",
             fontSize = 40.sp,
             color = Color.Black
-
         )
     }
 }
-
-
-@Composable
-fun ProfileScreen(innerPadding: PaddingValues) {
-    Column(
-        modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxSize()
-            .background(Color.Green),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Profile Screen",
-            fontSize = 40.sp,
-            color = Color.Black
-
-        )
-    }
-}
-
-@Composable
-fun SettingScreen(innerPadding: PaddingValues) {
-    Column(
-        modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxSize()
-            .background(Color.Cyan),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Setting Screen",
-            fontSize = 40.sp,
-            color = Color.Black
-
-        )
-    }
-}
-

@@ -25,11 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import hn.single.ticktok.ui.dialog.DialogInput
 import hn.single.ticktok.ui.dialog.DialogProgress
+import hn.single.ticktok.ui.dialog.ShowConfirmDialog
 import hn.single.ticktok.ui.drawermenu.HomeViewModel
 
 
@@ -65,7 +65,8 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 title = "Loading",
                 description = "This is loading dialog",
                 timeOut = 5000,
-                setShowDialog = { isShowDialogProgress.value = it })
+                setShowDialog = { isShowDialogProgress.value = it }
+            )
         }
 
         if (isShowDialogInput.value)
@@ -75,33 +76,26 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 Log.i("HomePage", "HomePage : $it")
             })
 
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.White),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Button(onClick = {
-                    isShowDialogInput.value = true
-                }) {
-                    Text(text = "Input Dialog")
-                }
-                Button(onClick = {
-                    isShowDialogProgress.value = true
-                }) {
-                    Text(text = "Progress Dialog")
-                }
-
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Button(onClick = {
+                isShowDialogInput.value = true
+            }) {
+                Text(text = "Input Dialog")
+            }
+            Button(onClick = {
+                isShowDialogProgress.value = true
+            }) {
+                Text(text = "Progress Dialog")
+            }
+            ShowConfirmDialog()
         }
     }
-}
-
-
-@Preview
-@Composable
-fun PreviewScreen() {
-
 }
 
 enum class HomeTabs(
