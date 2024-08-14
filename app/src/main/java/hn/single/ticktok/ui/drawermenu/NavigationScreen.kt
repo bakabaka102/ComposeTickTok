@@ -1,6 +1,7 @@
 package hn.single.ticktok.ui.drawermenu
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -142,6 +143,7 @@ private fun SetupAppBar(
                 })
         }
     ) { innerPadding ->
+        Log.d("TAG_Padding", "PaddingValue ===== $innerPadding")
         SetUpNavGraph(navController = navController, innerPadding = innerPadding)
     }
 }

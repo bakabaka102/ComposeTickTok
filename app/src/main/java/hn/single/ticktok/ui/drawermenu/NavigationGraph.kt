@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import hn.single.ticktok.ui.bottomnavigation.BottomNavigationItems
 import hn.single.ticktok.ui.drawermenu.screen.HomeScreen
 import hn.single.ticktok.ui.drawermenu.screen.NotificationScreen
 import hn.single.ticktok.ui.drawermenu.screen.ProfileScreen
