@@ -7,13 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +17,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import hn.single.ticktok.ui.dialog.DialogInput
@@ -96,26 +88,4 @@ fun HomeScreen(innerPadding: PaddingValues) {
             ShowConfirmDialog()
         }
     }
-}
-
-enum class HomeTabs(
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-    val text: String
-) {
-    Shop(
-        unselectedIcon = Icons.Outlined.ShoppingCart,
-        selectedIcon = Icons.Filled.ShoppingCart,
-        text = "Shop"
-    ),
-    Favourite(
-        unselectedIcon = Icons.Outlined.FavoriteBorder,
-        selectedIcon = Icons.Filled.Favorite,
-        text = "Favourite"
-    ),
-    Profile(
-        unselectedIcon = Icons.Outlined.Person,
-        selectedIcon = Icons.Filled.Person,
-        text = "Profile"
-    )
 }
