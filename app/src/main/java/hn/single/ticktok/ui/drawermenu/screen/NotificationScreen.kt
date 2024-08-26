@@ -47,12 +47,12 @@ fun NotificationScreen(innerPadding: PaddingValues) {
         )
     )
 
-    tabRow(innerPadding, tabItems)
+    TabRow(innerPadding, tabItems)
 }
 
 @ExperimentalFoundationApi
 @Composable
-fun tabRow(innerPadding: PaddingValues, tabItems: List<TabItem>) {
+fun TabRow(innerPadding: PaddingValues, tabItems: List<TabItem>) {
 
     var selectedTabIndex by remember {
         mutableIntStateOf(0)

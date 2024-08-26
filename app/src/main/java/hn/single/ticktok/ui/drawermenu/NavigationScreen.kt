@@ -12,11 +12,13 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material.icons.outlined.VideoLabel
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -179,5 +181,11 @@ private fun drawerMenuItems() = listOf(
         route = "share",
         selectedIcon = Icons.Filled.Share,
         unSelectedIcon = Icons.Outlined.Share,
+    ),
+    DrawerMenuItem(
+        title = "Videos",
+        route = "videos",
+        selectedIcon = Icons.Filled.VideoLibrary,
+        unSelectedIcon = Icons.Outlined.VideoLabel,
     ),
 )

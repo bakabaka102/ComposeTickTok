@@ -12,8 +12,9 @@ data class DrawerMenuItem(
 
 sealed class Screens(var route: String) {
 
-    data object  Home : Screens("home")
-    data object  Profile : Screens("profile")
-    data object  Notification : Screens("notification")
-    data object  Setting : Screens("setting")
+    data object Home : Screens("home")
+    data object Profile : Screens("profile")
+    data object Notification : Screens("notification")
+    data object Setting : Screens("setting")
+    data object VideosScreen : Screens("videos")
 }
