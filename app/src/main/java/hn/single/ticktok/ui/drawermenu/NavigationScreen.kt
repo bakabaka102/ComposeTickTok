@@ -184,7 +184,7 @@ private fun drawerMenuItems() = listOf(
     ),
     DrawerMenuItem(
         title = "Videos",
-        route = "videos",
+        route = Screens.VideosScreen.route,
         selectedIcon = Icons.Filled.VideoLibrary,
         unSelectedIcon = Icons.Outlined.VideoLabel,
     ),
